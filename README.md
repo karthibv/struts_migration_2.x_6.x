@@ -1,9 +1,11 @@
 # struts_migration_2.x_6.x
 Migrate struts 2.5.x to Struts 6.x
 
-This python tool is based on https://cwiki.apache.org/confluence/display/WW/Struts+2.5+to+6.0.0+migration
+This python tool is based on https://cwiki.apache.org/confluence/display/WW/Struts+2.5+to+6.0.0+migration.
 
-### Run the Migration Tool
+### Alternate options with open rewrite for migration: Please refer this - https://docs.openrewrite.org/recipes/java/struts/migrate6/migratestruts6
+
+## Migration Tool
 
 ```bash
 python struts_migration.py --config /path/to/config.yaml --project-dir /path/to/project
@@ -54,5 +56,3 @@ python struts_migration.py \
 
 
 
-#Alternate options with open rewrite for migration:
-1. https://docs.openrewrite.org/recipes/java/struts/migrate6/migratestruts6
