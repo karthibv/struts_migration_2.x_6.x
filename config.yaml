@@ -1,0 +1,73 @@
+# config.yaml
+
+project:
+  # Base project configuration
+  name: "struts-migration"
+  version: "1.0.0"
+  description: "Struts 2.5.x to 6.4.0 Migration Utility"
+
+paths:
+  # Project structure paths
+  base_dir: ""  # Will be provided via command line or environment variable
+  source_dir: "src/main/java"
+  resources_dir: "src/main/resources"
+  webapp_dir: "src/main/webapp"
+  test_dir: "src/test"
+  backup_dir: "backup"
+  
+
+files:
+  # Critical configuration files
+  pom: "pom.xml"
+  struts_config: "src/main/resources/struts.xml"
+  web_config: "src/main/webapp/WEB-INF/web.xml"
+  log_config: "src/main/resources/log4j2.xml"
+
+patterns:
+  # File patterns to include/exclude
+  include:
+    - "**/*.java"
+    - "**/*.xml"
+    - "**/*.jsp"
+    - "**/*.properties"
+  exclude:
+    - "**/target/**"
+    - "**/.git/**"
+    - "**/backup/**"
+
+migration:
+  # Migration specific settings
+  batch_size: 50  # Number of files to process in one batch
+  parallel_threads: 4  # Number of parallel migration threads
+  backup_enabled: true
+  rollback_enabled: true
+  interactive_mode: true
+
+logging:
+  # Logging configuration
+  level: "INFO"
+  file: "migration.log"
+  format: "%(asctime)s - %(levelname)s - %(message)s"
+  backup_count: 5
+  max_size: "10MB"
+
+dependencies:
+  struts:
+    old_version: "2.5.33"
+    new_version: "6.4.0"
+    required_plugins:
+      - artifactId: "struts2-core"
+        groupId: "org.apache.struts"
+        version: "${struts.version}"
+      - artifactId: "struts2-spring-plugin"
+        groupId: "org.apache.struts"
+        version: "${struts.version}"
+    removed_plugins:
+      - "struts2-sitegraph-plugin"
+      - "struts2-velocity-plugin"
+java:
+  version: "1.8"
+  encoding: "UTF-8"
+  compiler_args:
+    - "-Xlint:unchecked"
+    - "-Xlint:deprecation"
