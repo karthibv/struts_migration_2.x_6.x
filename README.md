@@ -1,4 +1,4 @@
-# Struts 2 to Struts 6 migration
+# Struts Migration - From version 2.x to 6.x
 Migrate from struts 2.5.33 to Struts 6.4.0
 
 This python tool is based on https://cwiki.apache.org/confluence/display/WW/Struts+2.5+to+6.0.0+migration.
